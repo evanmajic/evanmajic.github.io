@@ -22,6 +22,31 @@
         a:visited {
         color: purple;
         }
+
+        .button {
+            margin:0;
+            padding:0;
+        font-size: 9pt;
+        border: white;
+        color: white;
+        }
+
+        .button1 {
+            background-color: black;
+            color: red;
+            border: none;
+        }
+
+        .button1:focus {
+            background-color: black;
+            color: purple;
+            border: none;
+        }
+
+        #abstract {
+        width: 100%;
+        display: none;
+        }
         </style>
     </head>
 <body>
@@ -29,9 +54,24 @@
 <hr>
 <h2>Working Papers</h2>
     <p style="padding-left: 35px;"><b>Thinking Big: Determinacy and Large-Scale Solutions in the Sequence Space</b></br>
-        <i>with Adrien Auclert, Matthew Rognlie, and Ludwig Straub</i></p>
+        <i>with Adrien Auclert, Matthew Rognlie, and Ludwig Straub</i></br>
+    <button onclick="click_abs()", class="button button1"><u>[Abstract]</u></button> <a href = "/research/thinking big workshop.pdf" target="_blank">[Slides]</a> [Paper] </p>
+    <div id="abstract">
+    <p style="padding-left: 70px;width: 750px;"><i>We prove a structure theorem for sequence-space Jacobians of stationary models, showing that they have a “quasi-Toeplitz” form. This result has three major computational benefits: it yields a simple test for existence and uniqueness of solutions, drastically reduces the error from truncating the time horizon, and allows the solution of extremely large sequence-space systems. We apply the latter in a 180-country model of fiscal policy propagation on a trade network, with heterogeneous agents in each country, and show that this can be solved almost instantly, despite having a state space with dimension 2 million.</i></p>
+    </div>
 <h2>Works in Progress</h2>
     <p style="text-indent: 35px;"><b>Forecasting with HANK</b></p>
     <p style="text-indent: 35px;"><b>Shocks and the "Great Inflation"</b></p>   
+<script>
+    function click_abs() {
+        var x = document.getElementById("abstract");
+        if (x.style.display === "none") {
+        x.style.display = "block";
+        } else {
+        x.style.display = "none";
+        }
+    }
+</script>
+    
 </body>
 </html>
