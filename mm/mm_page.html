@@ -46,8 +46,15 @@
         width: 100%;
         display: block;
         }
-        
         #yearpar2 {
+        width: 100%;
+        display: none;
+        }
+        #yearpar3 {
+        width: 100%;
+        display: none;
+        }
+        #yearpar4 {
         width: 100%;
         display: none;
         }
@@ -71,6 +78,8 @@
         <li style="margin-bottom: 10px;">Aug. Elo (Baseline)<br> <a href = "/mm/m2024/cv_elo_npd.pdf" target="_blank">[Matchups]</a> <a href = "/mm/m2024/br_elo_npd.pdf" target="_blank">[Bracket]</a></li>
         <li style="margin-bottom: 10px;">Aug. Elo (+Margin of Victory)<br> <a href = "/mm/m2024/cv_elo_wpd.pdf" target="_blank">[Matchups]</a> <a href = "/mm/m2024/br_elo_wpd.pdf" target="_blank">[Bracket]</a></li>
     </ul>
+    </div>
+    <div id="yearpar2">
     <h2>Women (2024)</h2>
     <ul style="padding: none;list-style-type: '&#x25B8;   ';">
         <li style="margin-bottom: 10px;">PMF (Baseline)<br> <a href = "/mm/w2024/cv_pmf_nhp.pdf" target="_blank">[Matchups]</a> <a href = "/mm/w2024/br_pmf_nhp.pdf" target="_blank">[Bracket]</a></li>
@@ -79,7 +88,7 @@
         <li style="margin-bottom: 10px;">Aug. Elo (+Margin of Victory)<br> <a href = "/mm/w2024/cv_elo_wpd.pdf" target="_blank">[Matchups]</a> <a href = "/mm/w2024/br_elo_wpd.pdf" target="_blank">[Bracket]</a></li>
     </ul>
     </div>
-    <div id="yearpar2">
+    <div id="yearpar3">
         <h2>Men (2025)</h2>
         <ul style="padding: none;list-style-type: '&#x25B8;   ';">
             <li style="margin-bottom: 10px;">PMF (Baseline)<br> <a href = "/mm/m2025/cv_bpmf_nhp.pdf" target="_blank">[Matchups]</a> <a href = "/mm/m2025/br_bpmf_nhp.pdf" target="_blank">[Bracket]</a></li>
@@ -87,7 +96,8 @@
             <li style="margin-bottom: 10px;">Aug. Elo (Baseline)<br> <a href = "/mm/m2025/cv_elo.pdf" target="_blank">[Matchups]</a> <a href = "/mm/m2025/br_elo.pdf" target="_blank">[Bracket]</a></li>
             <li style="margin-bottom: 10px;">Aug. Elo (+Margin of Victory)<br> <a href = "/mm/m2025/cv_elo_wpd.pdf" target="_blank">[Matchups]</a> <a href = "/mm/m2025/br_aug_elo.pdf" target="_blank">[Bracket]</a></li>
         </ul>
-            
+    </div>
+    <div id="yearpar4">
         <h2>Women (2025)</h2>
         <ul style="padding: none;list-style-type: '&#x25B8;   ';">
             <li style="margin-bottom: 10px;">PMF (Baseline)<br> <a href = "/mm/w2025/cv_bpmf_nhp.pdf" target="_blank">[Matchups]</a> <a href = "/mm/w2025/br_bpmf_nhp.pdf" target="_blank">[Bracket]</a></li>
@@ -97,12 +107,15 @@
         </ul>
     </div>
     <p style="margin-bottom:0.5cm;text-indent: 25px;"> </p>
-    <p>Prediction year: <button onclick="click_it0('yearpar')", class="button button1">[<u>2024</u>]</button> <button onclick="click_it0('yearpar2')", class="button button1">[<u>2025</u>]</button></p>
+    <p>Prediction year: <button onclick="click_it0('yearpar')", class="button button1">[<u>Men 2024</u>]</button>
+         <button onclick="click_it0('yearpar2')", class="button button1">[<u>Women 2024</u>]</button> 
+         <button onclick="click_it0('yearpar3')", class="button button1">[<u>Men 2025</u>]</button>
+         <button onclick="click_it0('yearpar4')", class="button button1">[<u>Women 2025</u>]</button></p>
 <script>
     function click_it0(inIt) {
         var x = document.getElementById(inIt);
         x.style.display = "block";
-        var pardos = ["yearpar", "yearpar2"];
+        var pardos = ["yearpar", "yearpar2", "yearpar3", "yearpar4"];
         for(let i = 0; i < pardos.length; i++){
             var y = document.getElementById(pardos[i]);
             if(pardos[i] !== inIt){
