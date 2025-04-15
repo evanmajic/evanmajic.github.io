@@ -55,7 +55,15 @@
             border: none;
         }
 
-        #abstract {
+        #abstract1 {
+        width: 100%;
+        display: none;
+        }
+        #abstract2 {
+        width: 100%;
+        display: none;
+        }
+        #abstract3 {
         width: 100%;
         display: none;
         }
@@ -67,16 +75,40 @@
 <h2>Working Papers</h2>
     <p style="padding-left: 35px;"><b>Thinking Big: Determinacy and Large-Scale Solutions in the Sequence Space</b></br>
         <i>with Adrien Auclert, Matthew Rognlie, and Ludwig Straub</i></br>
-    <button onclick="click_abs()", class="button button1"><u>[Abstract]</u></button> <a href = "/research/thinking big workshop.pdf" target="_blank">[Slides]</a> [Paper] </p>
-    <div id="abstract">
+    <button onclick="click_abs1()", class="button button1"><u>[Abstract]</u></button> <a href = "/research/thinking big workshop.pdf" target="_blank">[Slides]</a></p>
+    <div id="abstract1">
     <p style="padding-left: 70px;width: 750px;"><i>We prove a structure theorem for sequence-space Jacobians of stationary models, showing that they have a “quasi-Toeplitz” form. This result has three major computational benefits: it yields a simple test for existence and uniqueness of solutions, drastically reduces the error from truncating the time horizon, and allows the solution of extremely large sequence-space systems. We apply the latter in a 180-country model of fiscal policy propagation on a trade network, with heterogeneous agents in each country, and show that this can be solved almost instantly, despite having a state space with dimension 2 million.</i></p>
     </div>
 <h2>Works in Progress</h2>
-    <p style="text-indent: 35px;"><b>Forecasting with HANK</b></p>
-    <p style="text-indent: 35px;"><b>Shocks and the "Great Inflation"</b></p>   
+    <p style="padding-left: 35px;"><b>Forecasting with HANK</b></br>
+        <button onclick="click_abs2()", class="button button1"><u>[Abstract]</u></button> </p>
+        <div id="abstract2">
+            <p style="padding-left: 70px;width: 750px;"><i>I develop and estimate a quantitative Heterogeneous-Agent New Keynesian (HANK) model for macroeconomic forecasting and policy analysis. It is designed to compete with its Representative-Agent (RA) equivalents and with Vector Autoregressions (VARs) in out-of-sample forecasting of aggregates. I also assess the HANK model's strength in predicting the effects of targeted policies. I then analyze the drivers of the model's forecasting effectiveness and outline a framework for its use in policy analysis.</i></p>
+            </div>
+    <p style="padding-left: 35px;"><b>Shocks and the "Great Inflation"</b></br>
+        <button onclick="click_abs3()", class="button button1"><u>[Abstract]</u></button></p>   
+    <div id="abstract3">
+        <p style="padding-left: 70px;width: 750px;"><i>We develop methods for inference on historical decompositions in Bayesian Vector Autoregressions (BVARs) with external instruments and missing data to investigate the role of different shocks in the "Great Inflation," a peacetime inflation episode in the US from the 1960s to the 1980s. We find evidence that oil supply shocks were among its primary drivers. Moreover, oil supply shocks continued to play a meaningful role in the behavior of economic aggregates in the decades since. Monetary shocks also explain a considerable amount of variation in aggregates over the sample period. </i></p>
+        </div>
 <script>
-    function click_abs() {
-        var x = document.getElementById("abstract");
+    function click_abs1() {
+        var x = document.getElementById("abstract1");
+        if (x.style.display === "none") {
+        x.style.display = "block";
+        } else {
+        x.style.display = "none";
+        }
+    }
+    function click_abs2() {
+        var x = document.getElementById("abstract2");
+        if (x.style.display === "none") {
+        x.style.display = "block";
+        } else {
+        x.style.display = "none";
+        }
+    }
+    function click_abs3() {
+        var x = document.getElementById("abstract3");
         if (x.style.display === "none") {
         x.style.display = "block";
         } else {
