@@ -5,41 +5,95 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="icon" type="image/x-icon" href="favicon0.ico">
         <style>
+        :root[data-color-mode="light"] {
+        --bg-color: #fff;
+        --fg-color: #000;
+        }
+        :root[data-color-mode="dark"] {
+        --bg-color: #000;
+        --fg-color: #fff;
+        }
+        :root[data-color-mode="light"] .hidden_in_light_mode {
+        display: none;
+        }
+
+        :root[data-color-mode="dark"] .hidden_in_dark_mode {
+        display: none;
+        }
+
+        .color_mode_button {
+        display: flex;
+        align-items: right;
+        justify-content: right;
+        padding: 5px;
+        margin: 0 auto 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1;
+        color: var(--fg-color);
+        cursor: pointer;
+        background: none;
+        border: none;
+        border-radius: 50px;
+        }
+
+        .color_mode_button svg {
+        width: 1.5em;
+        height: 1.5em;
+        fill: none;
+        stroke: var(--fg-color);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.5px;
+        }
+
+        .color_mode_button#enable_dark_mode:hover svg,
+        .color_mode_button#enable_dark_mode:focus svg {
+        outline: none;
+        fill: var(--blue-bold);
+        }
+
+        .color_mode_button#enable_light_mode:hover svg,
+        .color_mode_button#enable_light_mode:focus svg {
+        outline: none;
+        fill: var(--yellow-bold);
+        }
         body{
         font-family: Helvetica, Sans-Serif;
-        color: white;
+        background-color: var(--bg-color);
+        color: var(--fg-color);
         font-size: 1rem;
         line-height: 1.5rem;
-        background-color: black;
         width: 90%;
-        margin:1rem;padding:1rem}
+        margin:1rem;padding:1rem;
+        }
         ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: visible;
-        background-color: black;
+        background-color: var(--bg-color);
         display: flex;
         align-items: center;
         justify-content: center;
         }
         ul li a {
         display: block;
-        color: white;
+        color: var(--fg-color);
         text-align: center;
         padding: 0rem 1.5rem;
         text-decoration: none;
         }
 
         ul li a:hover {
-        background-color: white;
+        background-color: var(--fg-color);
         color: red;
         }
         ul2 {
         list-style-type: none;
         margin: 0;
         padding: 0;
-        background-color: black;
+        background-color: var(--bg-color);
         display: block;
         }
         ul2 li a {
@@ -50,14 +104,12 @@
         h1   {
         font-size: 2.5rem;
         margin:0;
-        padding:0.75rem 0rem;
-        color: white;}
+        padding:0.75rem 0rem;}
         h2 {
         font-size: 1.5rem;
         }
 
-        p    {color: white;
-        font-size: 1rem;}
+        p    {font-size: 1rem;}
         p a:link {
         color: red;
         }
@@ -96,6 +148,59 @@ All the notes and slides here are in PDF format. The programs are written in Pyt
 <h2>Bayesian methods</h2>
 <ul2 style="padding: 0rem 1.5rem;list-style-type: '&#x25B8;   ';">
     <li>Posteriors for Bayesian VARs and VECMs with conjugate priors <br> <a href = "/teaching/var_vecm_conj.pdf" target="_blank">[Notes]</a><br></li>
-</ul2>        
+</ul2>
+<!-- <hr style="margin: 1.5rem 0rem 1rem 0rem;"> -->
+<svg style="display: none;">
+    <symbol viewBox="0 0 24 24" id="color_mode_control_icon_sun">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="color_mode_control_icon_moon">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </symbol>
+</svg>
+
+<!-- The toggles -->
+<button class="color_mode_button hidden_in_light_mode" id="enable_light_mode">
+    <svg>
+        <title>Light mode</title>
+        <use href="#color_mode_control_icon_sun"></use>
+    </svg>
+</button>
+<button class="color_mode_button hidden_in_dark_mode" id="enable_dark_mode">
+    <svg>
+        <title>Dark mode</title>
+        <use href="#color_mode_control_icon_moon"></use>
+    </svg>
+</button>
+<script>
+    document.querySelectorAll('.color_mode_button').forEach((button) => {
+    button.addEventListener('click', (event) => {
+        const targetElement = /** @type {HTMLElement} */ (event.currentTarget);
+        const elementId = targetElement.id;
+        if (elementId === 'enable_light_mode') {
+        document.documentElement.setAttribute('data-color-mode', 'light');
+        // localStorage.setItem('data-color-mode', 'light');
+        } else if (elementId === 'enable_dark_mode') {
+        document.documentElement.setAttribute('data-color-mode', 'dark');
+        // localStorage.setItem('data-color-mode', 'dark');
+        } else {
+        throw new Error(`unrecognized color mode button id ${elementId}.`)
+        }
+    });
+    });
+    const matcher = window.matchMedia('(prefers-color-scheme: dark)');
+    if (localStorage.getItem('data-color-mode') === 'dark' ||
+        (matcher.matches && !localStorage.getItem('data-color-mode'))) {
+    document.documentElement.setAttribute('data-color-mode', 'dark');
+}
+</script>        
 </body>
 </html>
