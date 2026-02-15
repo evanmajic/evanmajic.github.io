@@ -21,12 +21,15 @@
         display: none;
         }
 
+        #main {
+        display: flex;
+        align-items: center; /* Vertical align the elements to the center */
+        }
         .color_mode_button {
         display: flex;
-        align-items: right;
+        align-items: center;
         justify-content: right;
-        padding: 5px;
-        margin: 0 auto 1.5rem;
+        padding: 0;
         font-size: 1rem;
         font-weight: 600;
         line-height: 1;
@@ -34,17 +37,18 @@
         cursor: pointer;
         background: none;
         border: none;
-        border-radius: 50px;
+        margin-left: auto
+        /* border-radius: 2rem; */
         }
 
         .color_mode_button svg {
-        width: 1.5em;
-        height: 1.5em;
+        width: 1.5rem;
+        height: 1.5rem;
         fill: none;
         stroke: var(--fg-color);
         stroke-linecap: round;
         stroke-linejoin: round;
-        stroke-width: 1.5px;
+        stroke-width: 0.1rem;
         }
 
         .color_mode_button#enable_dark_mode:hover svg,
@@ -110,7 +114,22 @@
         </style>
     </head>
 <body>
-<h1>EVAN MAJIC</h1>
+<div id="main">
+<h1>Evan Majic</h1>
+ <!-- The toggles -->
+<button class="color_mode_button hidden_in_light_mode" id="enable_light_mode">
+    <svg>
+        <title>Light mode</title>
+        <use href="#color_mode_control_icon_sun"></use>
+    </svg>
+</button>
+<button class="color_mode_button hidden_in_dark_mode" id="enable_dark_mode">
+    <svg>
+        <title>Dark mode</title>
+        <use href="#color_mode_control_icon_moon"></use>
+    </svg>
+</button>
+</div>
 <hr>
     <ul>
   <li><a href="https://evanmajic.github.io/">Home</a></li>
@@ -127,7 +146,6 @@
 <p>Every year, during the NCAA Basketball Championships, I do some simple modelling to try to make up for my woeful bracket-making abilities. Recent forecasts can be found on my <a href="/mm/mm_page.html">March Madness page</a>. </p>
 
 <p>I can be reached via email at <a href="mailto:majic@u.northwestern.edu">majic@u.northwestern.edu</a>. My programs, if not posted on this site, may appear on my <a href = "https://github.com/evanmajic" target="_blank">GitHub</a>.</p>
-<hr style="margin: 1.5rem 0rem 1rem 0rem;">
 <!-- Define the SVG -->
 <svg style="display: none;">
     <symbol viewBox="0 0 24 24" id="color_mode_control_icon_sun">
@@ -146,19 +164,6 @@
     </symbol>
 </svg>
 
-<!-- The toggles -->
-<button class="color_mode_button hidden_in_light_mode" id="enable_light_mode">
-    <svg>
-        <title>Light mode</title>
-        <use href="#color_mode_control_icon_sun"></use>
-    </svg>
-</button>
-<button class="color_mode_button hidden_in_dark_mode" id="enable_dark_mode">
-    <svg>
-        <title>Dark mode</title>
-        <use href="#color_mode_control_icon_moon"></use>
-    </svg>
-</button>
 <script>
     document.querySelectorAll('.color_mode_button').forEach((button) => {
     button.addEventListener('click', (event) => {
