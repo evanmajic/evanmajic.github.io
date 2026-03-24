@@ -105,7 +105,7 @@
         color: red;
         }
         p a:visited {
-            color: #800000;
+            color: #878787;
         }
         @media (max-width: 480px) {
             html {
@@ -144,6 +144,8 @@
 <hr>
 <!-- <p style="margin-bottom:0.15rem;text-indent: 2rem;"> </p> -->
     <p>These are the forecasts for 2025. For the previous year's forecast, see the <a href="/mm/mm_page2024.html">March Madness 2024</a> page. For the current year's forecast, see the main <a href="/mm/mm_page.html">March Madness</a> page, where details about the models and methods can also be found.</p>
+    <p>The factorization models are referred to as 'PMF.' The 'Baseline' PMF models are estimated without hyperpriors, but '+Hyperpriors' models include conjugate hyperpriors for the unconditional mean and variance of latent
+        offense/defense vectors. The Elo-type models are referred to as 'Aug. Elo' and the '+Margin of Victory' version models the margin of victory jointly with the binary game outcome.</p>
         <h2>Men</h2>
             <p style="text-indent: 2.5rem;">PMF (Baseline): <a href = "/mm/m2025/cv_bpmf_nhp.pdf" target="_blank">[Matchups]</a>, <a href = "/mm/m2025/br_bpmf_nhp.pdf" target="_blank">[Bracket]</a></p>
             <p style="text-indent: 2.5rem;">PMF (+Hyperpriors): <a href = "/mm/m2025/cv_bpmf_whp.pdf" target="_blank">[Matchups]</a>, <a href = "/mm/m2025/br_bpmf_whp.pdf" target="_blank">[Bracket]</a></p>
